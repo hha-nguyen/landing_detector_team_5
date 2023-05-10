@@ -955,7 +955,8 @@ class LandingDetector:
         You should hard fix all the requirement parameters
         """
         self.name = 'LandingDetector'
-        self.model = torch.jit.load(r'C:\Users\mesto\Documents\Projects\landing_detector_team_5\weights\best.torchscript')
+        self.model = torch.hub.load(r'C:\Users\mesto\Documents\Projects\landing_detector_team_5\src\yolov5', path=r'C:\Users\mesto\Documents\Projects\landing_detector_team_5\src\best.pt',
+                               source='local', model='custom', force_reload=True)
 
     def detect(self, img):
         img_code = average_hash(Image.fromarray(img))
